@@ -1,0 +1,59 @@
+{
+  "sample_input": {
+    "student_name": "Student",
+    "subjects": [
+      "Data Structures",
+      "Database Management Systems",
+      "Operating Systems"
+    ],
+    "exam_date": "2026-12-15",
+    "daily_study_hours": 3,
+    "preparation_level": "intermediate",
+    "weak_topics": [
+      "Trees",
+      "Normalization",
+      "CPU Scheduling"
+    ]
+  },
+  "sample_output": {
+    "weekly_plan": [
+      {
+        "day": "Monday",
+        "subject": "Data Structures",
+        "topic": "Trees",
+        "duration_minutes": 60,
+        "activity": "Learn"
+      },
+      {
+        "day": "Monday",
+        "subject": "DBMS",
+        "topic": "Normalization",
+        "duration_minutes": 45,
+        "activity": "Practice"
+      },
+      {
+        "day": "Monday",
+        "subject": "Operating Systems",
+        "topic": "CPU Scheduling",
+        "duration_minutes": 45,
+        "activity": "Learn"
+      },
+      {
+        "day": "Monday",
+        "subject": "Mixed Revision",
+        "topic": "Recall and short quiz",
+        "duration_minutes": 30,
+        "activity": "Revise"
+      }
+    ],
+    "priority_topics": [
+      "Trees",
+      "Normalization",
+      "CPU Scheduling"
+    ],
+    "daily_goal": "Understand one core concept in each subject and solve practice questions.",
+    "revision_strategy": "Spend the final 30 minutes recalling key ideas and noting mistakes.",
+    "encouragement": "Consistency matters more than long study sessions. Keep the plan realistic."
+  },
+  "note": "This is an illustrative sample response. Live AI-generated output requires an LLM API key and application runtime."
+}

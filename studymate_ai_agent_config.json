@@ -1,0 +1,95 @@
+{
+  "project_name": "StudyMate AI",
+  "version": "1.0.0",
+  "category": "Applied Artificial Intelligence",
+  "description": "An AI-powered academic assistant that creates personalized study plans and answers student learning queries.",
+  "use_case": "Help students organize exam preparation based on subjects, exam date, daily available study time, and current preparation level.",
+  "ai_configuration": {
+    "agent_type": "LLM-powered conversational study assistant",
+    "provider": "Google Gemini or another compatible LLM provider",
+    "model": "gemini-2.5-flash",
+    "temperature": 0.4,
+    "max_output_tokens": 1200,
+    "api_key": "SET_YOUR_API_KEY_IN_ENVIRONMENT_VARIABLE"
+  },
+  "system_prompt": "You are StudyMate AI, a supportive and practical academic planning assistant. Ask for missing information when necessary. Create realistic study plans using the student's subjects, exam date, daily available hours, and preparation level. Prioritize difficult and high-weightage topics, include revision and practice sessions, avoid unrealistic schedules, and present the plan in a clear table or structured JSON. When answering academic questions, explain concepts step by step in beginner-friendly language and include a short example where useful. Never claim that a plan guarantees marks or results.",
+  "input_schema": {
+    "student_name": "string (optional)",
+    "subjects": [
+      "string"
+    ],
+    "exam_date": "YYYY-MM-DD",
+    "daily_study_hours": "number",
+    "preparation_level": "beginner | intermediate | advanced",
+    "weak_topics": [
+      "string (optional)"
+    ]
+  },
+  "output_schema": {
+    "weekly_plan": [
+      {
+        "day": "string",
+        "subject": "string",
+        "topic": "string",
+        "duration_minutes": "number",
+        "activity": "Learn | Practice | Revise"
+      }
+    ],
+    "priority_topics": [
+      "string"
+    ],
+    "daily_goal": "string",
+    "revision_strategy": "string",
+    "encouragement": "string"
+  },
+  "workflow": [
+    {
+      "step": 1,
+      "name": "Collect student inputs",
+      "action": "Read subjects, exam date, available hours, and preparation level."
+    },
+    {
+      "step": 2,
+      "name": "Validate inputs",
+      "action": "Check that the exam date and available study hours are reasonable."
+    },
+    {
+      "step": 3,
+      "name": "Build AI prompt",
+      "action": "Combine student details with the StudyMate AI system prompt."
+    },
+    {
+      "step": 4,
+      "name": "Generate study plan",
+      "action": "Send the prompt to the configured language model."
+    },
+    {
+      "step": 5,
+      "name": "Format response",
+      "action": "Return a structured timetable, priority topics, and revision strategy."
+    },
+    {
+      "step": 6,
+      "name": "Refine plan",
+      "action": "Allow the student to ask follow-up questions and adjust the plan."
+    }
+  ],
+  "safety_and_quality": [
+    "Do not request passwords or sensitive personal information.",
+    "Do not guarantee academic outcomes.",
+    "Ask clarifying questions when required input is missing.",
+    "Encourage breaks and realistic study durations.",
+    "Verify important academic facts with trusted course material."
+  ],
+  "deployment": {
+    "status": "configuration_ready_not_deployed",
+    "recommended_options": [
+      "Streamlit Community Cloud",
+      "Render",
+      "Hugging Face Spaces"
+    ],
+    "required_secret": "GEMINI_API_KEY",
+    "public_url": null,
+    "note": "A public deployment URL must be created after connecting this project to a hosting account and configuring an API key."
+  }
+}
